@@ -1,0 +1,19 @@
+# Core framework
+click>=8.1
+sqlalchemy>=2.0
+
+# LLM integration (LangChain + provider adapters)
+langchain-core>=0.3
+langchain-openai>=0.2
+langchain-huggingface>=0.1
+
+# Test execution / reporting
+pytest>=8.0
+pytest-json-report>=1.5
+
+# Optional: Postgres driver (uncomment for production deployments)
+# psycopg2-binary>=2.9
+
+# Dev / CI
+ruff>=0.6
+mypy>=1.11

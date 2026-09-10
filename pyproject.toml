@@ -1,0 +1,39 @@
+[project]
+name = "ai-test-framework"
+version = "0.1.0"
+description = "AI-powered test case generation and automation framework"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[project.scripts]
+ai-test-gen = "ai_test_framework.cli:cli"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+markers = [
+    "happy_path: primary expected-use test cases",
+    "edge_case: boundary or unusual-but-valid input cases",
+    "error_case: cases expected to raise an exception",
+    "boundary: numeric/size boundary value cases",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+warn_unused_ignores = true
